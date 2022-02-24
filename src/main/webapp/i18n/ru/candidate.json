@@ -1,0 +1,27 @@
+{
+  "openVoteBackApp": {
+    "candidate": {
+      "home": {
+        "title": "Candidates",
+        "createLabel": "Создать новый Candidate",
+        "createOrEditLabel": "Создать или отредактировать Candidate",
+        "notFound": "No Candidates found"
+      },
+      "created": "Новый Candidate создан с идентификатором {{ param }}",
+      "updated": "Candidate обновлен с идентификатором {{ param }}",
+      "deleted": "Candidate удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Candidate {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidate"
+      },
+      "name": "Name",
+      "type": "Type",
+      "politicalParty": "Political Party",
+      "description": "Description",
+      "imageUrl": "Image Url",
+      "cikCandidateId": "Cik Candidate Id"
+    }
+  }
+}

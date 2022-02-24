@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="votePlace">
+            <h2><span jhiTranslate="openVoteBackApp.votePlace.detail.title">Vote Place</span> {{ votePlace.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.vrn">Vrn</span></dt>
+                <dd>
+                    <span>{{ votePlace.vrn }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.name">Name</span></dt>
+                <dd>
+                    <span>{{ votePlace.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.subjCode">Subj Code</span></dt>
+                <dd>
+                    <span>{{ votePlace.subjCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.numKsa">Num Ksa</span></dt>
+                <dd>
+                    <span>{{ votePlace.numKsa }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.vid">Vid</span></dt>
+                <dd>
+                    <span>{{ votePlace.vid }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.address">Address</span></dt>
+                <dd>
+                    <span>{{ votePlace.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.descr">Descr</span></dt>
+                <dd>
+                    <span>{{ votePlace.descr }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ votePlace.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.lat">Lat</span></dt>
+                <dd>
+                    <span>{{ votePlace.lat }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.lon">Lon</span></dt>
+                <dd>
+                    <span>{{ votePlace.lon }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.votingAddress">Voting Address</span></dt>
+                <dd>
+                    <span>{{ votePlace.votingAddress }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.votingDescr">Voting Descr</span></dt>
+                <dd>
+                    <span>{{ votePlace.votingDescr }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.votingPhone">Voting Phone</span></dt>
+                <dd>
+                    <span>{{ votePlace.votingPhone }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.votingLat">Voting Lat</span></dt>
+                <dd>
+                    <span>{{ votePlace.votingLat }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.votePlace.votingLon">Voting Lon</span></dt>
+                <dd>
+                    <span>{{ votePlace.votingLon }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+</div>

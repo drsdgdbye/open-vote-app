@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vote">
+            <h2><span jhiTranslate="openVoteBackApp.vote.detail.title">Vote</span> {{ vote.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="openVoteBackApp.vote.userId">User Id</span></dt>
+                <dd>
+                    <span>{{ vote.userId }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.vote.createDate">Create Date</span></dt>
+                <dd>
+                    <span>{{ vote.createDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.vote.candidate">Candidate</span></dt>
+                <dd>
+                    <div *ngIf="vote.candidateId">
+                        <a [routerLink]="['/candidate', vote.candidateId, 'view']">{{ vote.candidateId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.vote.voting">Voting</span></dt>
+                <dd>
+                    <div *ngIf="vote.votingId">
+                        <a [routerLink]="['/voting', vote.votingId, 'view']">{{ vote.votingName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vote', vote.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

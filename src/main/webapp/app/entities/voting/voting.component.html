@@ -1,0 +1,59 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="openVoteBackApp.voting.home.title">Votings</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-voting" [routerLink]="['/voting/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="openVoteBackApp.voting.home.createLabel">
+            Create a new Voting
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="votings?.length === 0">
+        <span jhiTranslate="openVoteBackApp.voting.home.notFound">No votings found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="votings && votings.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="openVoteBackApp.voting.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="openVoteBackApp.voting.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cikVotingId"><span jhiTranslate="openVoteBackApp.voting.cikVotingId">Cik Voting Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let voting of votings;trackBy: trackId">
+                    <td><a [routerLink]="['/voting', voting.id, 'view']">{{ voting.id }}</a></td>
+                    <td>{{ voting.name }}</td>
+                    <td>{{ voting.date }}</td>
+                    <td>{{ voting.cikVotingId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/voting', voting.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/voting', voting.cikVotingId, 'results']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.results">Results</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

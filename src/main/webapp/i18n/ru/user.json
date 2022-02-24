@@ -1,0 +1,21 @@
+{
+  "openVoteBackApp": {
+    "user": {
+      "home": {
+        "title": "Users",
+        "createLabel": "Создать новый User",
+        "createOrEditLabel": "Создать или отредактировать User",
+        "notFound": "No Users found"
+      },
+      "created": "Новый User создан с идентификатором {{ param }}",
+      "updated": "User обновлен с идентификатором {{ param }}",
+      "deleted": "User удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить User {{ id }}?"
+      },
+      "detail": {
+        "title": "User"
+      }
+    }
+  }
+}

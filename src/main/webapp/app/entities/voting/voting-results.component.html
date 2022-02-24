@@ -1,0 +1,43 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="openVoteBackApp.voting.home.results">Results</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="voteCounts?.length === 0">
+        <span jhiTranslate="openVoteBackApp.voting.home.notFound">No results found</span>
+        <div>
+            <button type="button" class="btn btn-info" (click)="previousState()">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="voteCounts && voteCounts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                <th scope="col"  jhiSortBy="candidateName"><span jhiTranslate="openVoteBackApp.voting.candidateName">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                <th scope="col"  jhiSortBy="candidateParty"><span jhiTranslate="openVoteBackApp.voting.candidateParty">Political Party</span> <fa-icon icon="sort"></fa-icon></th>
+                <th scope="col"  jhiSortBy="candidateCount"><span jhiTranslate="openVoteBackApp.voting.candidateCount">%</span> <fa-icon icon="sort"></fa-icon></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let voteCount of voteCounts">
+                <td>{{ voteCount.candidateName }}</td>
+                <td>{{ voteCount.candidateParty }}</td>
+                <td>{{ voteCount.candidateCount! / allVotesCount! | percent }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <button type="button" id="back" class="btn btn-info" (click)="previousState()">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+</div>
+

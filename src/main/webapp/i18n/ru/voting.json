@@ -1,0 +1,28 @@
+{
+  "openVoteBackApp": {
+    "voting": {
+      "candidateName": "Ф.И.О.",
+      "candidateParty": "Партия",
+      "candidateCount": "%",
+      "home": {
+        "title": "Выборы",
+        "results": "Статистика",
+        "createLabel": "Создать новые выборы",
+        "createOrEditLabel": "Создать или отредактировать выборы",
+        "notFound": "Выборы не найдены"
+      },
+      "created": "Новые выборы созданы с идентификатором {{ param }}",
+      "updated": "Выборы обновлены с идентификатором {{ param }}",
+      "deleted": "Выборы удалены с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить выборы {{ id }}?"
+      },
+      "detail": {
+        "title": "Выборы"
+      },
+      "name": "Название",
+      "date": "Дата проведения",
+      "cikVotingId": "Идентификатор выборов ЦИК"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "District",
+  "fields": [
+    {
+      "fieldName": "vrn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subjCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numKsa",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lon",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "votingAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "votingDescr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "votingPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "votingLat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "votingLon",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200814131354",
+  "javadoc": "The District entity",
+  "entityTableName": "district",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-vote-heading" jhiTranslate="openVoteBackApp.vote.home.createOrEditLabel">Create or edit a Vote</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="openVoteBackApp.vote.createDate" for="field_createDate">Create Date</label>
+                    <div class="d-flex">
+                        <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" formControlName="createDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createDate')!.invalid && (editForm.get('createDate')!.dirty || editForm.get('createDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="openVoteBackApp.vote.candidate" for="field_candidate">Candidate</label>
+                    <select class="form-control" id="field_candidate" name="candidate" formControlName="candidateId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="candidateOption.id" *ngFor="let candidateOption of candidates; trackBy: trackById">{{ candidateOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="openVoteBackApp.vote.voting" for="field_voting">Voting</label>
+                    <select class="form-control" id="field_voting" name="voting" formControlName="votingId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="votingOption.id" *ngFor="let votingOption of votings; trackBy: trackById">{{ votingOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

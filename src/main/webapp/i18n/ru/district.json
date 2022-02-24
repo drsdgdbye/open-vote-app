@@ -1,0 +1,36 @@
+{
+  "openVoteBackApp": {
+    "votePlace": {
+      "home": {
+        "title": "Участки для голосования ЦИК",
+        "createLabel": "Создать новый участок",
+        "createOrEditLabel": "Создать или отредактировать участок",
+        "notFound": "Участки не найдены"
+      },
+      "created": "Новый участок создан с идентификатором {{ param }}",
+      "updated": "Участок обновлен с идентификатором {{ param }}",
+      "deleted": "Участок удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить участок {{ id }}?"
+      },
+      "detail": {
+        "title": "Участок для голосования ЦИК"
+      },
+      "vrn": "Vrn",
+      "name": "Name",
+      "subjCode": "Subj Code",
+      "numKsa": "Num Ksa",
+      "vid": "Vid",
+      "address": "Address",
+      "descr": "Descr",
+      "phone": "Phone",
+      "lat": "Lat",
+      "lon": "Lon",
+      "votingAddress": "Voting Address",
+      "votingDescr": "Voting Descr",
+      "votingPhone": "Voting Phone",
+      "votingLat": "Voting Lat",
+      "votingLon": "Voting Lon"
+    }
+  }
+}

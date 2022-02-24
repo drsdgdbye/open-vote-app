@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="voting">
+            <h2><span jhiTranslate="openVoteBackApp.voting.detail.title">Voting</span> {{ voting.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="openVoteBackApp.voting.name">Name</span></dt>
+                <dd>
+                    <span>{{ voting.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.voting.date">Date</span></dt>
+                <dd>
+                    <span>{{ voting.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="openVoteBackApp.voting.cikVotingId">Cik Voting Id</span></dt>
+                <dd>
+                    <span>{{ voting.cikVotingId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/voting', voting.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

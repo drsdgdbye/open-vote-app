@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="openVoteBackApp.votePlace.home.title">Vote Places</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="votePlaces?.length === 0">
+        <span jhiTranslate="openVoteBackApp.votePlace.home.notFound">No Vote Places found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="votePlaces && votePlaces.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vrn"><span jhiTranslate="openVoteBackApp.votePlace.vrn">Vrn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="openVoteBackApp.votePlace.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subjCode"><span jhiTranslate="openVoteBackApp.votePlace.subjCode">Subj Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numKsa"><span jhiTranslate="openVoteBackApp.votePlace.numKsa">Num Ksa</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vid"><span jhiTranslate="openVoteBackApp.votePlace.vid">Vid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="openVoteBackApp.votePlace.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descr"><span jhiTranslate="openVoteBackApp.votePlace.descr">Descr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phone"><span jhiTranslate="openVoteBackApp.votePlace.phone">Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lat"><span jhiTranslate="openVoteBackApp.votePlace.lat">Lat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lon"><span jhiTranslate="openVoteBackApp.votePlace.lon">Lon</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="votingAddress"><span jhiTranslate="openVoteBackApp.votePlace.votingAddress">Voting Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="votingDescr"><span jhiTranslate="openVoteBackApp.votePlace.votingDescr">Voting Descr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="votingPhone"><span jhiTranslate="openVoteBackApp.votePlace.votingPhone">Voting Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="votingLat"><span jhiTranslate="openVoteBackApp.votePlace.votingLat">Voting Lat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="votingLon"><span jhiTranslate="openVoteBackApp.votePlace.votingLon">Voting Lon</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let votePlace of votePlaces ;trackBy: trackId">
+                    <td><a [routerLink]="['/votePlace', votePlace.id, 'view']">{{ votePlace.id }}</a></td>
+                    <td>{{ votePlace.vrn }}</td>
+                    <td>{{ votePlace.name }}</td>
+                    <td>{{ votePlace.subjCode }}</td>
+                    <td>{{ votePlace.numKsa }}</td>
+                    <td>{{ votePlace.vid }}</td>
+                    <td>{{ votePlace.address }}</td>
+                    <td>{{ votePlace.descr }}</td>
+                    <td>{{ votePlace.phone }}</td>
+                    <td>{{ votePlace.lat }}</td>
+                    <td>{{ votePlace.lon }}</td>
+                    <td>{{ votePlace.votingAddress }}</td>
+                    <td>{{ votePlace.votingDescr }}</td>
+                    <td>{{ votePlace.votingPhone }}</td>
+                    <td>{{ votePlace.votingLat }}</td>
+                    <td>{{ votePlace.votingLon }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/votePlace', votePlace.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
