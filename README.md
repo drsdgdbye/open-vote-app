@@ -15,8 +15,6 @@ The app allows checking candidates and voting in parallel to create own clear vo
 + PostgreSQL
 + Liquibase
 + JUnit 5
-+ Swagger 2
-+ Mapstruct
 
 ## Development
 
