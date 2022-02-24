@@ -1,5 +1,7 @@
 # Open Vote app
 
+[![Hits-of-Code](https://hitsofcode.com/github/drsdgdbye/open-vote-app?branch=master)](https://hitsofcode.com/github/drsdgdbye/open-vote-app/view?branch=master)
+
 This app was created for assistance in monitoring the elections of deputies of the State Duma of Russia, regional and local elections.
 The app allows checking candidates and voting in parallel to create own clear voting statistics.
 
