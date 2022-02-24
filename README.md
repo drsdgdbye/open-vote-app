@@ -7,14 +7,14 @@ The app allows checking candidates and voting in parallel to create own clear vo
 
 ## Tech stack
 
-+ Java 8
-+ Spring Boot
++ Java 8 https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white
++ Spring Boot https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white
 + Spring Data JPA
 + Spring Security
 + Spring Mail
-+ Thymeleaf
++ Angular https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 + JHipster
-+ PostgreSQL
++ PostgreSQL https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
 + Liquibase
 + JUnit 5
 
